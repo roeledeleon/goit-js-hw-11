@@ -1,0 +1,334 @@
+body {
+  margin: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  width: 270px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.section {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+/* ---------- HEADER ---------- */
+
+.header {
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 50px;
+  width: 100%;
+
+  background: linear-gradient(180deg, #7490ff, #15c0a4);
+  box-shadow: 0px 3px 5px #555555, -3px -3px 10px #ffffff;
+}
+
+/* ---------- SEARCH-FORM | INPUT ---------- */
+
+.search-form-input {
+  padding-left: 15px;
+  border: none;
+  outline: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* ---------- SEARCH-FORM | BUTTON ---------- */
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #6cf41e;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 12px;
+  padding: 5px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span::after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 5px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-left: 30px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+/* ---------- GALLERY ---------- */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 20px;
+}
+
+/* ---------- PHOTO CARD ----------- */
+
+.lightbox {
+  color: black;
+  text-decoration: none;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.photo-card {
+  margin-left: 10px;
+  margin-right: 10px;
+
+  filter: contrast(0.9);
+  filter: grayscale(0.5);
+
+  background: white;
+  border-radius: 5px;
+
+  width: 270px;
+  height: 200px;
+
+  transition: 1s box-shadow;
+}
+
+.photo-card:hover {
+  filter: contrast(1);
+  filter: grayscale(0);
+
+  box-shadow: 0 5px 35px 0px rgba(0, 0, 0, 0.1);
+}
+
+.photo-card:hover::before,
+.photo-card:hover::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 270px;
+  height: 200px;
+  background: #7490ff;
+  border-radius: 5px;
+  z-index: -1;
+  animation: 1s clockwise infinite;
+}
+
+.photo-card:hover:after {
+  background: #6cf41e;
+  animation: 2s counterclockwise infinite;
+}
+
+@keyframes clockwise {
+  0% {
+    top: -5px;
+    left: 0;
+  }
+  12% {
+    top: -2px;
+    left: 2px;
+  }
+  25% {
+    top: 0;
+    left: 5px;
+  }
+  37% {
+    top: 2px;
+    left: 2px;
+  }
+  50% {
+    top: 5px;
+    left: 0;
+  }
+  62% {
+    top: 2px;
+    left: -2px;
+  }
+  75% {
+    top: 0;
+    left: -5px;
+  }
+  87% {
+    top: -2px;
+    left: -2px;
+  }
+  100% {
+    top: -5px;
+    left: 0;
+  }
+}
+
+@keyframes counterclockwise {
+  0% {
+    top: -5px;
+    right: 0;
+  }
+  12% {
+    top: -2px;
+    right: 2px;
+  }
+  25% {
+    top: 0;
+    right: 5px;
+  }
+  37% {
+    top: 2px;
+    right: 2px;
+  }
+  50% {
+    top: 5px;
+    right: 0;
+  }
+  62% {
+    top: 2px;
+    right: -2px;
+  }
+  75% {
+    top: 0;
+    right: -5px;
+  }
+  87% {
+    top: -2px;
+    right: -2px;
+  }
+  100% {
+    top: -5px;
+    right: 0;
+  }
+}
+
+/* ---------- PHOTO CARD | FLIP CARD ---------- */
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: white;
+  width: 270px;
+  height: 150px;
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* Style the back flipped photo */
+.flip-photo {
+  width: 270px;
+  height: 200px;
+
+  transition: 1s box-shadow;
+}
+
+/* ---------- PHOTO CARD | INFO ---------- */
+
+.info {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  border-radius: 5px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 12px;
+}
+
+.info-number {
+  margin-top: 5px;
+  font-weight: 400;
+  font-size: 11px;
+}
