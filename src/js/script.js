@@ -153,9 +153,9 @@ async function loadMore() {
 function handleScroll() {
   alert('Test');
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-  console.log(scrollTop + clientHeight);
+  console.log(scrollTop + clientHeight + 5);
   console.log(scrollHeight);
-  if (scrollTop + clientHeight >= scrollHeight) {
+  if (scrollTop + clientHeight + 5 >= scrollHeight) {
     reachEnd = options.params.reachEnd;
     if (reachEnd != true) {
       loadMore();
