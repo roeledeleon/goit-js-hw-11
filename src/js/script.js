@@ -151,6 +151,7 @@ async function loadMore() {
 }
 
 function handleScroll() {
+  alert('Test');
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
   console.log(scrollTop + clientHeight);
   console.log(scrollHeight);
