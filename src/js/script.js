@@ -42,9 +42,9 @@ function renderGallery(hits) {
         <a href="${largeImageURL}" class='lightbox' >
           <div class="photo-card" data-aos="flip-up">
             <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="${webformatURL}" alt="${tags}" loading="lazy" />
                 </div>
                 <div class="flip-card-back">
                   <img class="flip-photo" src="${webformatURL}" alt="${tags}" loading="lazy" />
