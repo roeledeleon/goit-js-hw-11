@@ -1,3 +1,5 @@
+'use strict';
+
 // ---------- IMPORTS
 
 import { BASE_URL, options } from './pixabay-api';
@@ -150,6 +152,8 @@ async function loadMore() {
 
 function handleScroll() {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  console.log(scrollTop + clientHeight);
+  console.log(scrollHeight);
   if (scrollTop + clientHeight >= scrollHeight) {
     reachEnd = options.params.reachEnd;
     if (reachEnd != true) {
