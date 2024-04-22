@@ -2,9 +2,9 @@ let t,e,o;function i(t){return t&&t.__esModule?t.default:t}var n,a,r,s,l,c,f="un
         <a href="${e}" class='lightbox' >
           <div class="photo-card" data-aos="flip-up">
             <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="${t}" alt="${o}" loading="lazy" />
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="${t}" alt="${o}" loading="lazy" />
                 </div>
                 <div class="flip-card-back">
                   <img class="flip-photo" src="${t}" alt="${o}" loading="lazy" />
@@ -32,4 +32,4 @@ let t,e,o;function i(t){return t&&t.__esModule?t.default:t}var n,a,r,s,l,c,f="un
           </div>
         </a>
         `).join("");e0.insertAdjacentHTML("beforeend",e),p.params.fetchedPhotoNumber>=p.params.totalPhotoNumber&&(p.params.reachEnd=!0),e3.refresh(),i(eG).refresh()}async function e4(t){if(t.preventDefault(),p.params.q=e1.value.trim(),""!==p.params.q){void 0!==p.params.q&&(p.params.fetchedPhotoNumber=0,p.params.totalPhotoNumber=0,p.params.page=1,p.params.reachEnd=!1),e0.innerHTML="";try{let t=await eA.get(m,p);e5=t.data.totalHits;let{hits:e}=t.data;0===e.length?(0,e_.Notify).failure("Sorry, there are no image matching your search query"):((0,e_.Notify).success(`Hooray! We found ${e5} images`),p.params.fetchedPhotoNumber+=e.length,p.params.totalPhotoNumber=e5,e8(e)),e1.value=""}catch(t){(0,e_.Notify).failure(t)}}}async function e9(){if(!0!=e6){p.params.page+=1;try{let t=await eA.get(m,p);e5=t.data.totalHits;let{hits:e}=t.data;p.params.fetchedPhotoNumber+=e.length,p.params.totalPhotoNumber=e5,(0,e_.Notify).success(`Displaying ${p.params.fetchedPhotoNumber} images`),e8(e)}catch(t){(0,e_.Notify).failure(t)}}}i(eG).init(),e2.addEventListener("submit",e4),window.addEventListener("scroll",function(){let{scrollTop:t,scrollHeight:e,clientHeight:o}=document.documentElement;t+o>=e&&!0!=(e6=p.params.reachEnd)&&e9(),t+o>=e&&!0==e6&&(0,e_.Notify).info("We are sorry but you've reached the end of the search result")});
-//# sourceMappingURL=index.bd364760.js.map
+//# sourceMappingURL=index.95afa0fb.js.map
